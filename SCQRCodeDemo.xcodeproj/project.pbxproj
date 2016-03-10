@@ -10,9 +10,11 @@
 		D1359FC61C90297000A6FDC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FC51C90297000A6FDC4 /* main.m */; };
 		D1359FC91C90297000A6FDC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FC81C90297000A6FDC4 /* AppDelegate.m */; };
 		D1359FCC1C90297000A6FDC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FCB1C90297000A6FDC4 /* ViewController.m */; };
-		D1359FCF1C90297000A6FDC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1359FCD1C90297000A6FDC4 /* Main.storyboard */; };
 		D1359FD11C90297000A6FDC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1359FD01C90297000A6FDC4 /* Assets.xcassets */; };
 		D1359FD41C90297000A6FDC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1359FD21C90297000A6FDC4 /* LaunchScreen.storyboard */; };
+		D1359FED1C91D4D800A6FDC4 /* QRCodeBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FE81C91D4D800A6FDC4 /* QRCodeBackgroundView.m */; };
+		D1359FEE1C91D4D800A6FDC4 /* QRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FEA1C91D4D800A6FDC4 /* QRCodeScanView.m */; };
+		D1359FEF1C91D4D800A6FDC4 /* QRCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FEC1C91D4D800A6FDC4 /* QRCodeScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +24,15 @@
 		D1359FC81C90297000A6FDC4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D1359FCA1C90297000A6FDC4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D1359FCB1C90297000A6FDC4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D1359FCE1C90297000A6FDC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1359FD01C90297000A6FDC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1359FD31C90297000A6FDC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1359FD51C90297000A6FDC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1359FE71C91D4D800A6FDC4 /* QRCodeBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeBackgroundView.h; sourceTree = "<group>"; };
+		D1359FE81C91D4D800A6FDC4 /* QRCodeBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeBackgroundView.m; sourceTree = "<group>"; };
+		D1359FE91C91D4D800A6FDC4 /* QRCodeScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScanView.h; sourceTree = "<group>"; };
+		D1359FEA1C91D4D800A6FDC4 /* QRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScanView.m; sourceTree = "<group>"; };
+		D1359FEB1C91D4D800A6FDC4 /* QRCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScanViewController.h; sourceTree = "<group>"; };
+		D1359FEC1C91D4D800A6FDC4 /* QRCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +69,12 @@
 				D1359FC81C90297000A6FDC4 /* AppDelegate.m */,
 				D1359FCA1C90297000A6FDC4 /* ViewController.h */,
 				D1359FCB1C90297000A6FDC4 /* ViewController.m */,
-				D1359FCD1C90297000A6FDC4 /* Main.storyboard */,
+				D1359FE71C91D4D800A6FDC4 /* QRCodeBackgroundView.h */,
+				D1359FE81C91D4D800A6FDC4 /* QRCodeBackgroundView.m */,
+				D1359FE91C91D4D800A6FDC4 /* QRCodeScanView.h */,
+				D1359FEA1C91D4D800A6FDC4 /* QRCodeScanView.m */,
+				D1359FEB1C91D4D800A6FDC4 /* QRCodeScanViewController.h */,
+				D1359FEC1C91D4D800A6FDC4 /* QRCodeScanViewController.m */,
 				D1359FD01C90297000A6FDC4 /* Assets.xcassets */,
 				D1359FD21C90297000A6FDC4 /* LaunchScreen.storyboard */,
 				D1359FD51C90297000A6FDC4 /* Info.plist */,
@@ -139,7 +151,6 @@
 			files = (
 				D1359FD41C90297000A6FDC4 /* LaunchScreen.storyboard in Resources */,
 				D1359FD11C90297000A6FDC4 /* Assets.xcassets in Resources */,
-				D1359FCF1C90297000A6FDC4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,21 +163,16 @@
 			files = (
 				D1359FCC1C90297000A6FDC4 /* ViewController.m in Sources */,
 				D1359FC91C90297000A6FDC4 /* AppDelegate.m in Sources */,
+				D1359FED1C91D4D800A6FDC4 /* QRCodeBackgroundView.m in Sources */,
+				D1359FEE1C91D4D800A6FDC4 /* QRCodeScanView.m in Sources */,
 				D1359FC61C90297000A6FDC4 /* main.m in Sources */,
+				D1359FEF1C91D4D800A6FDC4 /* QRCodeScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D1359FCD1C90297000A6FDC4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1359FCE1C90297000A6FDC4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D1359FD21C90297000A6FDC4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,6 +269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCQRCodeDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chow.SCQRCodeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCQRCodeDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chow.SCQRCodeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,6 +307,7 @@
 				D1359FDA1C90297000A6FDC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
