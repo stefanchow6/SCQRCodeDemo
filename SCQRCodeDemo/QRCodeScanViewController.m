@@ -15,7 +15,7 @@
 #define SCAN_AREA_WIDTH  280.0
 #define SCAN_AREA_HEIGHT 280.0
 
-@interface QRCodeScanViewController () <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
+@interface QRCodeScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) NSTimer *animationTimer;
@@ -172,15 +172,20 @@
         
         AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects firstObject];
         
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:metadataObject.stringValue delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [av show];
+        // 以下为解析二维码后的操作，可以自定义
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:metadataObject.stringValue preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+            [self.captureSession startRunning];
+            [self startAnimation];
+            
+        }];
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
     }
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    [self.captureSession startRunning];
-    [self startAnimation];
 }
 
 @end
