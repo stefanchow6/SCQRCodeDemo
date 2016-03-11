@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1294F6A1C928373007A868B /* QRCodeGenerationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1294F691C928373007A868B /* QRCodeGenerationViewController.m */; };
 		D1359FC61C90297000A6FDC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FC51C90297000A6FDC4 /* main.m */; };
 		D1359FC91C90297000A6FDC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FC81C90297000A6FDC4 /* AppDelegate.m */; };
 		D1359FCC1C90297000A6FDC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1359FCB1C90297000A6FDC4 /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1294F681C928373007A868B /* QRCodeGenerationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerationViewController.h; sourceTree = "<group>"; };
+		D1294F691C928373007A868B /* QRCodeGenerationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerationViewController.m; sourceTree = "<group>"; };
 		D1359FC11C90297000A6FDC4 /* SCQRCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCQRCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1359FC51C90297000A6FDC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1359FC71C90297000A6FDC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				D1359FEA1C91D4D800A6FDC4 /* QRCodeScanView.m */,
 				D1359FEB1C91D4D800A6FDC4 /* QRCodeScanViewController.h */,
 				D1359FEC1C91D4D800A6FDC4 /* QRCodeScanViewController.m */,
+				D1294F681C928373007A868B /* QRCodeGenerationViewController.h */,
+				D1294F691C928373007A868B /* QRCodeGenerationViewController.m */,
 				D1359FD01C90297000A6FDC4 /* Assets.xcassets */,
 				D1359FD21C90297000A6FDC4 /* LaunchScreen.storyboard */,
 				D1359FD51C90297000A6FDC4 /* Info.plist */,
@@ -163,6 +168,7 @@
 			files = (
 				D1359FCC1C90297000A6FDC4 /* ViewController.m in Sources */,
 				D1359FC91C90297000A6FDC4 /* AppDelegate.m in Sources */,
+				D1294F6A1C928373007A868B /* QRCodeGenerationViewController.m in Sources */,
 				D1359FED1C91D4D800A6FDC4 /* QRCodeBackgroundView.m in Sources */,
 				D1359FEE1C91D4D800A6FDC4 /* QRCodeScanView.m in Sources */,
 				D1359FC61C90297000A6FDC4 /* main.m in Sources */,
