@@ -15,7 +15,7 @@
 #define SCAN_AREA_WIDTH  280.0
 #define SCAN_AREA_HEIGHT 280.0
 
-@interface QRCodeScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
+@interface QRCodeScanViewController () <AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) NSTimer *animationTimer;
@@ -32,6 +32,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.title = @"二维码/条码";
     
+    [self setUpPhotoBarButtonItem];
     [self setUpBackgroundView];
     [self setUpScanView];
     [self setUpScanner];
@@ -57,6 +58,12 @@
         [self.captureSession stopRunning];
         [self stopAnimation];
     }
+}
+
+- (void)setUpPhotoBarButtonItem
+{
+    UIBarButtonItem *photoBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(photoBarButtonItemAction)];
+    self.navigationItem.rightBarButtonItem = photoBarButtonItem;
 }
 
 - (void)setUpBackgroundView
@@ -141,7 +148,7 @@
 
 - (void)startAnimation
 {
-    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:1/60.0 target:self selector:@selector(animationTimerAction) userInfo:nil repeats:YES];
+    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(animationTimerAction) userInfo:nil repeats:YES];
 }
 
 - (void)stopAnimation
@@ -163,6 +170,38 @@
     self.scrollLineView.frame = newRect;
 }
 
+- (void)photoBarButtonItemAction
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [ipc setDelegate:self];
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    CIImage *qrcodeImage = [[CIImage alloc] initWithCGImage:image.CGImage options:nil];
+    CIContext *context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer : @(YES)}];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
+    NSArray *features = [detector featuresInImage:qrcodeImage];
+    
+    NSString *content = [NSString string];
+    for (CIQRCodeFeature *feature in features)
+    {
+        content = [content stringByAppendingString:feature.messageString];
+    }
+    
+    [self showAlertWithMessage:content];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     if (metadataObjects.count > 0)
@@ -173,19 +212,23 @@
         AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects firstObject];
         
         // 以下为解析二维码后的操作，可以自定义
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:metadataObject.stringValue preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-            [self.captureSession startRunning];
-            [self startAnimation];
-            
-        }];
-        [alert addAction:cancelAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlertWithMessage:metadataObject.stringValue];
     }
+}
+
+- (void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"二维码内容" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.captureSession startRunning];
+        [self startAnimation];
+        
+    }];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
